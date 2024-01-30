@@ -1,0 +1,19 @@
+name: Demo Github Actions
+
+on:
+  push:
+    branches: [main,master]
+  pull_request:
+    branches: [main,master]
+
+
+jobs:
+  runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: set-up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - run: java -version
+      - run: echo -n "Dallas Mavericks on top"
