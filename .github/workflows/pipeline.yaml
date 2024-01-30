@@ -1,4 +1,4 @@
-name: Demo Github Actions
+name: Github Actions CI
 
 on:
   push:
@@ -6,9 +6,24 @@ on:
   pull_request:
     branches: [main,master]
 
-
 jobs:
-  runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      BOM: false
+      JAVA: true
+      JAVA_PARENT: false
+      NPM: false
+      NPM_POM: false
+      DJANGO: false
+      REPO_SYNC: false
+      CHEF_SYNC: false
+      FORTIFY: false
+      BLACK_DUCK: false
+      DOCKER: true
+      DATABASE: false
+      
     steps:
       - uses: actions/checkout@v2
       - name: set-up JDK
